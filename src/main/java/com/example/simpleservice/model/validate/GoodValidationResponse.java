@@ -1,6 +1,6 @@
 package com.example.simpleservice.model.validate;
 
-public class GoodValidationResponse extends ValidationResponse{
+public class GoodValidationResponse extends ValidationResponse {
     private boolean status;
 
     public GoodValidationResponse(boolean status) {

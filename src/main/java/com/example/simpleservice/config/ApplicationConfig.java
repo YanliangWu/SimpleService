@@ -38,11 +38,13 @@ public class ApplicationConfig {
     public MongoTemplate mongoTemplate() {
         return new MongoTemplate(new SimpleMongoClientDatabaseFactory(mongoClient(), database));
     }
+
     @Bean
     @Qualifier("DomainDao")
     public DomainDao domainDao() {
         return new MongoDomainDao(mongoTemplate(), domainTable);
     }
+
     @Bean
     @Qualifier("HistoryDao")
     public HistoryDao historyDao() {

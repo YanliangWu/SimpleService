@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface DomainDao {
 
-     void insertDomainRecord(String domain, List<String> ips);
+    void insertDomainRecord(String domain, List<String> ips);
 
-     List<DomainRecord> findByDomain(String domain);
+    List<DomainRecord> findByDomain(String domain);
 
 }

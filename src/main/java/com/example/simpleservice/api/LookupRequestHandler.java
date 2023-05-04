@@ -2,7 +2,7 @@ package com.example.simpleservice.api;
 
 import com.example.simpleservice.dao.DomainDao;
 import com.example.simpleservice.dao.HistoryDao;
-import com.example.simpleservice.model.*;
+import com.example.simpleservice.model.IpAddress;
 import com.example.simpleservice.model.lookup.BadLookupResponse;
 import com.example.simpleservice.model.lookup.GoodLookupResponse;
 import com.example.simpleservice.model.lookup.LookupResponse;
@@ -13,7 +13,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
-
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -36,13 +35,13 @@ public class LookupRequestHandler {
     @ResponseBody
     public LookupResponse lookup(@RequestParam String domain, HttpServletRequest request) {
 
-        try{
+        try {
             List<String> ipv4Addresses;
             List<DomainRecord> results;
             results = domainDao.findByDomain(domain);
             String callerIp = request.getRemoteAddr();
 
-            if (!results.isEmpty()){
+            if (!results.isEmpty()) {
                 // Get the DomainRecord that has the latest created_at timestamp
                 DomainRecord latestRecord = results.stream().max((a, b) -> (int) (a.getCreateAt() - b.getCreateAt())).get();
                 ipv4Addresses = new ArrayList<>(latestRecord.getAddresses().stream().filter(IpUtil::isIpv4Address).toList());
@@ -62,7 +61,7 @@ public class LookupRequestHandler {
 
             return res;
 
-        } catch (Exception e){
+        } catch (Exception e) {
             String errMsg = "Error encountered during domain lookup, exception %s".formatted(e);
             return BadLookupResponse
                     .builder()

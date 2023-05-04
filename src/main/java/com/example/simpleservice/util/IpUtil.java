@@ -1,8 +1,5 @@
 package com.example.simpleservice.util;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-
 public class IpUtil {
 
     public static boolean isIpv4Address(String ip) {

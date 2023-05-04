@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @Builder
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 public class BadLookupResponse extends LookupResponse {
     private String message;
 }

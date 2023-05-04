@@ -1,12 +1,10 @@
 package com.example.simpleservice.api;
 
 import com.example.simpleservice.model.validate.BadValidationResponse;
-import com.example.simpleservice.model.validate.IpValidationRequest;
 import com.example.simpleservice.model.validate.GoodValidationResponse;
+import com.example.simpleservice.model.validate.IpValidationRequest;
 import com.example.simpleservice.model.validate.ValidationResponse;
 import com.example.simpleservice.util.IpUtil;
-import org.apache.coyote.Response;
-import org.apache.el.util.Validation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

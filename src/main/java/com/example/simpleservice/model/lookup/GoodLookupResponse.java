@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @Builder
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 public class GoodLookupResponse extends LookupResponse {
 
     private List<IpAddress> addresses;

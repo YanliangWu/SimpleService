@@ -1,10 +1,7 @@
 package com.example.simpleservice.dao;
 
-import java.util.List;
-
-import com.example.simpleservice.model.record.DomainRecord;
 import com.example.simpleservice.model.LookupResult;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.simpleservice.model.record.DomainRecord;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -12,6 +9,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.time.Instant;
+import java.util.List;
 
 @Repository
 public class MongoDomainDao implements DomainDao {
