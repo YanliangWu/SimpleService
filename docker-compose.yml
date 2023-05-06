@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  mongodb:
+    image: mongo
+    container_name: project-mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - mynetwork
+    command: [ "--bind_ip", "0.0.0.0" ]
+
+  myapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: simpleservice
+    restart: on-failure
+    ports:
+      - "3000:8080"
+    depends_on:
+      - mongodb
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    name: mynetwork
+    driver: bridge

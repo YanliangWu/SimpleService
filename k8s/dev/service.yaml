@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: simpleservice
+spec:
+  type: LoadBalancer
+  selector:
+    app: simpleservice
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: 30001

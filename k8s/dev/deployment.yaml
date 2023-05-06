@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simpleservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simpleservice
+  template:
+    metadata:
+      labels:
+        app: simpleservice
+    spec:
+      containers:
+        - name: simpleservice
+          image: docker-desktop/simpleservice
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATA_MONGODB_URI
+              value: mongodb://project-mongo:27017/project_db

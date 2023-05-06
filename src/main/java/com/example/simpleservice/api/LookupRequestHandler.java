@@ -9,6 +9,8 @@ import com.example.simpleservice.model.lookup.LookupResponse;
 import com.example.simpleservice.model.record.DomainRecord;
 import com.example.simpleservice.model.record.HistoryRecord;
 import com.example.simpleservice.util.IpUtil;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -20,6 +22,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/tools")
+@OpenAPIDefinition(info = @Info(title = "My API", version = "1.0", description = "API documentation for My API"))
+
 public class LookupRequestHandler {
     private final DomainDao domainDao;
     private final HistoryDao historyDao;
